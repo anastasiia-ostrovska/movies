@@ -1,6 +1,6 @@
 import type { HTMLInputTypeAttribute, ReactNode } from 'react';
 import { Controller, type UseControllerProps, useFormContext } from 'react-hook-form';
-import { TextField } from '@mui/material';
+import { TextField, type TextFieldProps } from '@mui/material';
 
 interface InputProps {
   name: string;
@@ -11,6 +11,8 @@ interface InputProps {
   endAdornment?: ReactNode;
 }
 
+type InputExtendedProps = InputProps & TextFieldProps;
+
 const Input = ({
   name,
   type,
@@ -19,7 +21,7 @@ const Input = ({
   helperText,
   endAdornment,
   ...textFieldMuiProps
-}: InputProps) => {
+}: InputExtendedProps) => {
   const { control } = useFormContext();
 
   return (

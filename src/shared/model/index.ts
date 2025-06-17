@@ -1,1 +1,1 @@
-export * from './redux-typed-hooks.ts';
+export * from './redux-typed-hooks';

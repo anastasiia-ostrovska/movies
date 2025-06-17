@@ -1,9 +1,9 @@
 import { useForm } from 'react-hook-form';
-import { type LoginData, storeAccessToken, useLoginMutation } from '@/entities/session';
-import { useAppDispatch } from '@/shared/model';
 import { useEffect, useState } from 'react';
-import { LOGIN_FORM_TEXT } from '@/features/login-form/config/login-form-text.ts';
+import { useAppDispatch } from '@/shared/model';
 import { DEFAULT_ERROR_MESSAGES } from '@/shared/configs';
+import { type LoginData, storeAccessToken, useLoginMutation } from '@/entities/session';
+import { LOGIN_FORM_TEXT } from '../config/login-form-text.ts';
 
 const defaultValues = {
   email: '',

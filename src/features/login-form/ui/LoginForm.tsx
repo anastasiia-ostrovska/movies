@@ -2,11 +2,11 @@ import { Form, Input } from '@/shared/form';
 import { FormProvider } from 'react-hook-form';
 import Button from '@mui/material/Button';
 import { type LoginData } from '@/entities/session';
-import { LOGIN_FORM_TEXT } from '../config/login-form-text.ts';
-import { useShowPassword } from '../model/use-show-password.ts';
-import ShowPasswordButton from './ShowPasswordButton.tsx';
-import LoginFormLayout from './LoginFormLayout.tsx';
-import { useLoginForm } from '@/features/login-form/model/use-login-form.ts';
+import { LOGIN_FORM_TEXT } from '../config/login-form-text';
+import { useShowPassword } from '../model/use-show-password';
+import { useLoginForm } from '../model/use-login-form';
+import ShowPasswordButton from './ShowPasswordButton';
+import LoginFormLayout from './LoginFormLayout';
 
 const LoginForm = () => {
   const { methods, isFormDisabled, isSubmitButtonDisabled, formErrorMessage, onSubmit } =

@@ -16,7 +16,7 @@ const LoginForm = () => {
 
   return (
     <FormProvider {...methods}>
-      <Form<LoginData> onSubmit={onSubmit}>
+      <Form<LoginData> onSubmit={onSubmit} width="100%">
         <LoginFormLayout
           formErrorMessage={formErrorMessage}
           emailInput={

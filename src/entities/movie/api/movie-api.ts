@@ -2,7 +2,6 @@ import { baseAPI, ENDPOINTS, INVALIDATION_TAGS, METHODS } from '@/shared/api';
 import type {
   DeleteMovieResponse,
   MovieResponse,
-  MoviesFile,
   MoviesListResponse,
   MoviesParams,
   NewMovie,
@@ -18,7 +17,7 @@ const movieAPI = baseAPI.injectEndpoints({
             ([, value]) => value !== '' && value !== null && value !== undefined
           )
         );
-        
+
         return {
           url: ENDPOINTS.MOVIES,
           params: filteredParams,
@@ -52,7 +51,7 @@ const movieAPI = baseAPI.injectEndpoints({
       invalidatesTags: [INVALIDATION_TAGS.MOVIES_LIST],
     }),
 
-    addMoviesFile: builder.mutation<DeleteMovieResponse, MoviesFile>({
+    addMoviesFile: builder.mutation<DeleteMovieResponse, FormData>({
       query: movies => ({
         method: METHODS.POST,
         url: ENDPOINTS.MOVIES_IMPORT,

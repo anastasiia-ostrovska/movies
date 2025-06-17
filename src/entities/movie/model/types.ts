@@ -64,7 +64,7 @@ export type DeleteMovieResponse = { status: 1 } | FailureResponse;
 
 // Add movie file types
 export interface MoviesFile {
-  movies: FileList;
+  movies: FileList | null;
 }
 
 export type AddMoviesFileResponse = { status: 1 } | FailureResponse;

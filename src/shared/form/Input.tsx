@@ -36,7 +36,7 @@ const Input = ({
             type={type}
             error={!!error}
             helperText={error?.message || helperText}
-            slotProps={{ input: { endAdornment: endAdornment } }}
+            slotProps={{ input: { endAdornment } }}
             {...field}
             {...textFieldMuiProps}
           />

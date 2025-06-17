@@ -16,6 +16,7 @@ const UploadFileButton = ({
   ...buttonMuiProps
 }: UploadFileButtonProps) => {
   const { register } = useFormContext();
+  const fileInputId = `${name}-file-input`;
 
   return (
     <Button
@@ -23,11 +24,19 @@ const UploadFileButton = ({
       role={undefined}
       size="small"
       variant="contained"
+      htmlFor={fileInputId}
       startIcon={<CloudUploadIcon />}
       {...buttonMuiProps}
     >
       {label}
-      <input {...register(name)} type="file" accept={accept} style={{ display: 'none' }} />
+      <input
+        id={fileInputId}
+        type="file"
+        tabIndex={0}
+        accept={accept}
+        style={{ display: 'none' }}
+        {...register(name)}
+      />
     </Button>
   );
 };

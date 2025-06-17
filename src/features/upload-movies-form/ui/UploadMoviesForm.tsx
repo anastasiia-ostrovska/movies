@@ -1,0 +1,47 @@
+import { Form } from '@/shared/form';
+import { FormProvider } from 'react-hook-form';
+import Button from '@mui/material/Button';
+import UploadFileButton from '@/shared/form/UploadFileButton';
+import type { MoviesFile } from '@/entities/movie';
+import { UPLOAD_MOVIES_FORM_TEXT } from '../configs/upload-movies-form-text';
+import { useUploadMovies } from '../model/use-upload-movies';
+import UploadMoviesFormLayout from './UploadMoviesFormLayout';
+
+const { movies, submitButton } = UPLOAD_MOVIES_FORM_TEXT;
+
+const UploadMoviesForm = () => {
+  const {
+    methods,
+    isFormDisabled,
+    isSubmitButtonDisabled,
+    formSuccessMessage,
+    fileName,
+    onSubmit,
+  } = useUploadMovies();
+
+  return (
+    <FormProvider {...methods}>
+      <Form<MoviesFile> onSubmit={onSubmit} width="100%">
+        <UploadMoviesFormLayout
+          fileName={fileName}
+          uploadButton={
+            <UploadFileButton
+              name={movies.name}
+              label={movies.label}
+              disabled={isFormDisabled}
+              sx={{ width: { sm: 250 } }}
+            />
+          }
+          submitButton={
+            <Button type="submit" disabled={isSubmitButtonDisabled}>
+              {submitButton.label}
+            </Button>
+          }
+          successMessage={formSuccessMessage}
+        />
+      </Form>
+    </FormProvider>
+  );
+};
+
+export default UploadMoviesForm;

@@ -7,13 +7,7 @@ const MovieCardList = () => {
   const { movies, isLoading, handleCardOpen } = useMovieCardList();
 
   return (
-    <Grid
-      container
-      component="ul"
-      rowSpacing={2}
-      columnSpacing={2}
-      sx={{ width: '100%', maxWidth: 900, m: 0, p: 0 }}
-    >
+    <Grid container component="ul" rowSpacing={2} columnSpacing={2}>
       {movies.map(movie => {
         return (
           <Grid key={movie.id} component="li" size={{ xs: 12, sm: 6, md: 4 }}>

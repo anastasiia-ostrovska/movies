@@ -1,3 +1,4 @@
+import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
@@ -11,7 +12,7 @@ const SortMoviesMenu = () => {
   const { anchorEl, open, handleSortClick, handleMenuClose, handleSortItemClick } = useSortMenu();
 
   return (
-    <div>
+    <Box>
       <Button
         id="sort-button"
         aria-controls={open ? 'sort-menu' : undefined}
@@ -37,7 +38,7 @@ const SortMoviesMenu = () => {
         <MenuItem onClick={() => handleSortItemClick('year')}>{menuItems.year}</MenuItem>
         <MenuItem onClick={() => handleSortItemClick('id')}>{menuItems.newest}</MenuItem>
       </Menu>
-    </div>
+    </Box>
   );
 };
 

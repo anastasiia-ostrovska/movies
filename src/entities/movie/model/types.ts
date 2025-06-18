@@ -10,11 +10,26 @@ export interface Movie {
   updatedAt: string;
 }
 
+export interface MovieItem {
+  id: number;
+  title: string;
+  year: string;
+  format: string;
+}
+
 interface Actor {
   id: number;
   name: string;
   createdAt: string;
   updatedAt: string;
+}
+
+export interface FakeMovie {
+  id: string;
+  title: string;
+  year: string;
+  format: string;
+  actors: Actor[];
 }
 
 export interface MovieWithActors extends Movie {

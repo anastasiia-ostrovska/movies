@@ -56,8 +56,22 @@ export interface NewMovie {
   title: string;
   year: number;
   format: string;
+  actors: string;
+}
+
+export interface NewMovieFormatted {
+  title: string;
+  year: number;
+  format: string;
   actors: string[];
 }
+
+interface AddMovieSuccessResponse {
+  data: MovieByIdResponse;
+  status: 1;
+}
+
+export type AddMovieResponse = AddMovieSuccessResponse | FailureResponse;
 
 // Delete movie types
 export type DeleteMovieResponse = { status: 1 } | FailureResponse;

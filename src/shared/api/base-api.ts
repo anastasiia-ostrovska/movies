@@ -22,7 +22,7 @@ const baseQueryWithUnauthorized: typeof baseQuery = async (args, api, extraOptio
   const { data, error } = result;
 
   const isFailure = !!data && (data as FailureResponse).status === 0;
-  const isTokenMissing = (data as FailureResponse)?.error?.fields?.token === 'REQUIRED';
+  const isTokenMissing = (data as FailureResponse)?.error?.fields?.token;
   const unauthorizedByStatus = (error as FetchBaseQueryError)?.status === 401;
 
   if ((isFailure && unauthorizedByStatus) || isTokenMissing) {

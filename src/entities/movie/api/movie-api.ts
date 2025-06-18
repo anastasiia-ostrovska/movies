@@ -1,10 +1,11 @@
 import { baseAPI, ENDPOINTS, INVALIDATION_TAGS, METHODS } from '@/shared/api';
 import type {
+  AddMovieResponse,
   DeleteMovieResponse,
   MovieResponse,
   MoviesListResponse,
   MoviesParams,
-  NewMovie,
+  NewMovieFormatted,
 } from '../model/types';
 
 const movieAPI = baseAPI.injectEndpoints({
@@ -34,7 +35,7 @@ const movieAPI = baseAPI.injectEndpoints({
     }),
 
     // Mutations
-    createMovie: builder.mutation<MovieResponse, NewMovie>({
+    createMovie: builder.mutation<AddMovieResponse, NewMovieFormatted>({
       query: newMovieData => ({
         method: METHODS.POST,
         url: ENDPOINTS.MOVIES,

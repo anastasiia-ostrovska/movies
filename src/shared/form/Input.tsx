@@ -1,6 +1,11 @@
 import type { HTMLInputTypeAttribute, ReactNode } from 'react';
 import { Controller, type UseControllerProps, useFormContext } from 'react-hook-form';
-import { TextField, type TextFieldProps } from '@mui/material';
+import { MenuItem, TextField, type TextFieldProps } from '@mui/material';
+
+export interface Item {
+  value: string;
+  label: string;
+}
 
 interface InputProps {
   name: string;
@@ -9,6 +14,7 @@ interface InputProps {
   helperText?: string;
   rules?: UseControllerProps['rules'];
   endAdornment?: ReactNode;
+  menuItems?: Item[];
 }
 
 type InputExtendedProps = InputProps & TextFieldProps;
@@ -16,10 +22,11 @@ type InputExtendedProps = InputProps & TextFieldProps;
 const Input = ({
   name,
   type,
-  label,
-  rules,
-  helperText,
-  endAdornment,
+  label = '',
+  rules = {},
+  helperText = '',
+  endAdornment = null,
+  menuItems = [],
   ...textFieldMuiProps
 }: InputExtendedProps) => {
   const { control } = useFormContext();
@@ -39,7 +46,13 @@ const Input = ({
             slotProps={{ input: { endAdornment } }}
             {...field}
             {...textFieldMuiProps}
-          />
+          >
+            {menuItems.map(item => (
+              <MenuItem key={item.value} value={item.value}>
+                {item.label}
+              </MenuItem>
+            ))}
+          </TextField>
         );
       }}
     />

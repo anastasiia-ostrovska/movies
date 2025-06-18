@@ -8,11 +8,12 @@ import { useLoginForm } from '../model/use-login-form';
 import ShowPasswordButton from './ShowPasswordButton';
 import LoginFormLayout from './LoginFormLayout';
 
+const { email, password, submitButton } = LOGIN_FORM_TEXT;
+
 const LoginForm = () => {
   const { methods, isFormDisabled, isSubmitButtonDisabled, formErrorMessage, onSubmit } =
     useLoginForm();
   const { type, isVisible, toggleVisibility } = useShowPassword();
-  const { email, password, submitButton } = LOGIN_FORM_TEXT;
 
   return (
     <FormProvider {...methods}>

@@ -9,7 +9,7 @@ const defaultValues = {
   [movies.name]: null,
 };
 
-export const useUploadMovies = () => {
+export const useUploadMoviesForm = () => {
   const methods = useForm<MoviesFile>({
     defaultValues,
     mode: 'onTouched',

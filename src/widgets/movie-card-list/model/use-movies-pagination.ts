@@ -23,7 +23,7 @@ export const useMoviesPagination = (data: MoviesListResponse | undefined) => {
     };
 
   const moviesCount = (data as MoviesListSuccessResponse).meta.total;
-  const pagesCount = Math.round(moviesCount / CARDS_PER_PAGE);
+  const pagesCount = Math.ceil(moviesCount / CARDS_PER_PAGE);
 
   const handlePageChange: PageChangeHandler = (_, page) => {
     if (page !== currentPage) {

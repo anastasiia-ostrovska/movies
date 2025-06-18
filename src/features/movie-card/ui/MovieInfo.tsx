@@ -13,7 +13,7 @@ const MovieInfo = ({ title, year, format, isLoading }: MovieInfoProps) => {
 
   return (
     <Box>
-      <Typography noWrap variant="h5" component="h3">
+      <Typography variant="h5" component="h3" sx={{ mb: 1 }}>
         <SkeletonText isLoading={isLoading} element={title} />
       </Typography>
       <Typography variant="body2" color="text.secondary">

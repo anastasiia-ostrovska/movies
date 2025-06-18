@@ -22,7 +22,6 @@ const UploadFileButton = ({
     <Button
       component="label"
       role={undefined}
-      size="small"
       variant="contained"
       htmlFor={fileInputId}
       startIcon={<CloudUploadIcon />}

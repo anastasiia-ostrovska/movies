@@ -4,7 +4,7 @@ export const UPLOAD_MOVIES_FORM_TEXT = {
   },
   movies: {
     name: 'movies',
-    label: 'Upload File',
+    label: 'Upload',
   },
   submitButton: { label: 'Save Movies' },
 };

@@ -17,7 +17,7 @@ export const modalSlice = createSlice({
   selectors: {
     selectModalState: state => state,
     selectIsModalOpen: state => state.isOpen,
-    selectModalType: state => state.ModalVariant,
+    selectModalType: state => state.modalVariant,
   },
   reducers: {
     openModal(state, action: PayloadAction<ModalVariant>) {
@@ -26,7 +26,7 @@ export const modalSlice = createSlice({
     },
     closeModal(state) {
       state.isOpen = false;
-      state.ModalVariant = null;
+      state.modalVariant = null;
     },
   },
 });

@@ -1,6 +1,7 @@
 import Grid from '@mui/material/Grid';
 import { MovieCard } from '@/features/movie-card/';
 import { useMovieCardList } from '../model/use-movie-card-list';
+import { DeleteMovieButton } from '@/features/delete-movie-button';
 
 const MovieCardList = () => {
   const { movies, isLoading, handleCardOpen } = useMovieCardList();
@@ -20,9 +21,10 @@ const MovieCardList = () => {
               id={movie.id}
               title={movie.title}
               format={movie.format}
-              year={movie.year}
+              year={movie.year as string}
               isLoading={isLoading}
               onCardClick={handleCardOpen}
+              action={<DeleteMovieButton id={movie.id} />}
             />
           </Grid>
         );

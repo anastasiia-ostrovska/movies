@@ -1,3 +1,4 @@
+import type { ReactNode } from 'react';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardActionArea from '@mui/material/CardActionArea';
@@ -7,16 +8,26 @@ import MovieInfo from './MovieInfo';
 interface MovieCardProps extends MovieItem {
   isLoading: boolean;
   onCardClick: (id: number) => void;
+  action?: ReactNode;
 }
 
-const MovieCard = ({ id, title, year, format, isLoading, onCardClick }: MovieCardProps) => {
+const MovieCard = ({
+  id,
+  title,
+  year,
+  format,
+  isLoading,
+  onCardClick,
+  action = null,
+}: MovieCardProps) => {
   return (
-    <Card>
+    <Card sx={{ display: 'flex', height: '100%' }}>
       <CardActionArea onClick={() => onCardClick(id)} sx={{ height: '100%' }}>
         <CardContent sx={{ height: '100%' }}>
           <MovieInfo title={title} year={year} format={format} isLoading={isLoading} />
         </CardContent>
       </CardActionArea>
+      {action}
     </Card>
   );
 };

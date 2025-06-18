@@ -29,11 +29,16 @@ const UploadMoviesForm = () => {
               name={movies.name}
               label={movies.label}
               disabled={isFormDisabled}
-              sx={{ width: { sm: 250 } }}
+              sx={{ width: { xs: '100%', sm: 250 }, height: 36 }}
             />
           }
           submitButton={
-            <Button type="submit" disabled={isSubmitButtonDisabled} variant="outlined">
+            <Button
+              type="submit"
+              disabled={isSubmitButtonDisabled}
+              variant="outlined"
+              sx={{ height: 36 }}
+            >
               {submitButton.label}
             </Button>
           }

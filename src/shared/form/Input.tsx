@@ -12,9 +12,9 @@ interface InputProps {
   type: HTMLInputTypeAttribute;
   label?: string;
   helperText?: string;
-  rules?: UseControllerProps['rules'];
   endAdornment?: ReactNode;
-  menuItems?: Item[];
+  rules?: UseControllerProps['rules'] | undefined;
+  menuItems?: Item[] | undefined;
 }
 
 type InputExtendedProps = InputProps & TextFieldProps;
@@ -22,11 +22,11 @@ type InputExtendedProps = InputProps & TextFieldProps;
 const Input = ({
   name,
   type,
+  rules,
+  menuItems,
   label = '',
-  rules = {},
   helperText = '',
   endAdornment = null,
-  menuItems = [],
   ...textFieldMuiProps
 }: InputExtendedProps) => {
   const { control } = useFormContext();
@@ -47,11 +47,13 @@ const Input = ({
             {...field}
             {...textFieldMuiProps}
           >
-            {menuItems.map(item => (
-              <MenuItem key={item.value} value={item.value}>
-                {item.label}
-              </MenuItem>
-            ))}
+            {menuItems
+              ? menuItems.map(item => (
+                  <MenuItem key={item.value} value={item.value}>
+                    {item.label}
+                  </MenuItem>
+                ))
+              : null}
           </TextField>
         );
       }}

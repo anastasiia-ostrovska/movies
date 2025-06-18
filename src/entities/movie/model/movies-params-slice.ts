@@ -1,11 +1,12 @@
 import { createSlice, type PayloadAction } from '@reduxjs/toolkit';
+import { CARDS_PER_PAGE } from '../consts/cards-per-page';
 import type { MoviesParams, OrderParam, SortParam } from './types';
 
 const initialState: MoviesParams = {
   actor: '',
   search: '',
   title: '',
-  limit: 12,
+  limit: CARDS_PER_PAGE,
   offset: 0,
   sort: 'id',
   order: 'ASC',

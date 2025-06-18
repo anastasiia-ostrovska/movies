@@ -21,7 +21,7 @@ const MovieCard = ({
   action = null,
 }: MovieCardProps) => {
   return (
-    <Card sx={{ display: 'flex', height: '100%' }}>
+    <Card sx={{ display: 'flex', height: '100%', width: '100%' }}>
       <CardActionArea onClick={() => onCardClick(id)} sx={{ height: '100%' }}>
         <CardContent sx={{ height: '100%' }}>
           <MovieInfo title={title} year={year} format={format} isLoading={isLoading} />

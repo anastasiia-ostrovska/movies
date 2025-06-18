@@ -1,4 +1,4 @@
-import { useMoviesParams, useMoviesListQuery } from '@/entities/movie';
+import { useMoviesParams, useMoviesListQuery, CARDS_PER_PAGE } from '@/entities/movie';
 import { generateFakeMoviesList } from '@/entities/movie';
 import { useModalController } from '@/entities/modal';
 
@@ -10,7 +10,7 @@ export const useMovieCardList = () => {
   if (!isLoading && data && 'data' in data) {
     movies = data?.data;
   } else {
-    movies = generateFakeMoviesList(12);
+    movies = generateFakeMoviesList(CARDS_PER_PAGE);
   }
 
   const { showModal } = useModalController();
@@ -18,5 +18,5 @@ export const useMovieCardList = () => {
     showModal({ modalVariant: 'showCard', id });
   };
 
-  return { movies, isLoading: isLoading || isError, handleCardOpen };
+  return { data, movies, isLoading: isLoading || isError, handleCardOpen };
 };

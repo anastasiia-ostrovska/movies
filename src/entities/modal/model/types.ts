@@ -9,3 +9,8 @@ export interface ModalProps {
 }
 
 export type ModalVariant = 'addMovies' | 'showCard';
+
+export interface ModalDetails {
+  id: number | null;
+  modalVariant: ModalVariant | null;
+}

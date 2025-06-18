@@ -1,12 +1,12 @@
 import { createSlice, type PayloadAction } from '@reduxjs/toolkit';
-import type { ModalVariant } from '@/entities/modal';
+import type { ModalDetails } from './types';
 
-interface ModalState {
+interface ModalState extends ModalDetails {
   isOpen: boolean;
-  modalVariant: ModalVariant | null;
 }
 
 const initialState: ModalState = {
+  id: null,
   isOpen: false,
   modalVariant: null,
 };
@@ -16,20 +16,25 @@ export const modalSlice = createSlice({
   initialState,
   selectors: {
     selectModalState: state => state,
-    selectIsModalOpen: state => state.isOpen,
+    selectModalId: state => state.id,
     selectModalType: state => state.modalVariant,
+    selectIsModalOpen: state => state.isOpen,
   },
   reducers: {
-    openModal(state, action: PayloadAction<ModalVariant>) {
+    openModal(state, action: PayloadAction<ModalDetails>) {
+      const { id, modalVariant } = action.payload;
+
       state.isOpen = true;
-      state.modalVariant = action.payload;
+      state.modalVariant = modalVariant;
+      state.id = id;
     },
     closeModal(state) {
       state.isOpen = false;
       state.modalVariant = null;
+      state.id = null;
     },
   },
 });
 
-export const { selectIsModalOpen, selectModalState } = modalSlice.selectors;
+export const { selectIsModalOpen, selectModalState, selectModalId } = modalSlice.selectors;
 export const { openModal, closeModal } = modalSlice.actions;

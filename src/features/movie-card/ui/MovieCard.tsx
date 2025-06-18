@@ -1,51 +1,24 @@
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
-import Typography from '@mui/material/Typography';
 import CardActionArea from '@mui/material/CardActionArea';
-import { SkeletonText } from '@/shared/ui';
-import type { MovieItem } from '../model/types';
+import type { MovieItem } from '@/entities/movie';
+import MovieInfo from './MovieInfo';
 
-interface MovieCard extends MovieItem {
+interface MovieCardProps extends MovieItem {
   isLoading: boolean;
-  onCardClick: (id) => void;
+  onCardClick: (id: number) => void;
 }
 
-const MovieCard = ({ id, title, year, format, isLoading, onCardClick }: MovieCard) => {
-  const releaseYearText = `Release Year: ${year}`;
-  const formatText = `Format: ${format}`;
-
+const MovieCard = ({ id, title, year, format, isLoading, onCardClick }: MovieCardProps) => {
   return (
     <Card>
       <CardActionArea onClick={() => onCardClick(id)} sx={{ height: '100%' }}>
         <CardContent sx={{ height: '100%' }}>
-          <Typography noWrap variant="h5" component="h3">
-            <SkeletonText isLoading={isLoading} element={title} />
-          </Typography>
-          <Typography variant="body2" color="text.secondary">
-            <SkeletonText isLoading={isLoading} element={releaseYearText} />
-            {/*{releaseYearText}*/}
-          </Typography>
-          <Typography variant="body2" color="text.secondary">
-            <SkeletonText isLoading={isLoading} element={formatText} />
-            {/*Format: {format}*/}
-          </Typography>
+          <MovieInfo title={title} year={year} format={format} isLoading={isLoading} />
         </CardContent>
       </CardActionArea>
     </Card>
   );
-
-  // <Typography noWrap={noWrap} gutterBottom variant="h6" component="h3">
-  //   <SkeletonText isLoading={isLoading} element={name} />
-  // </Typography>;
-
-  // return (
-  //   <div>
-  //     <div>id : {id}</div>
-  //     <div>title : {title}</div>
-  //     <div>year : {year}</div>
-  //     <div>format : {format}</div>
-  //   </div>
-  // );
 };
 
 export default MovieCard;

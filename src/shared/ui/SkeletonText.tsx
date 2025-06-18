@@ -1,6 +1,12 @@
+import type { ReactNode } from 'react';
 import Skeleton from '@mui/material/Skeleton';
 
-const SkeletonText = ({ isLoading, element }: LoaderProps) => {
+interface SkeletonTextProps {
+  isLoading: boolean;
+  element: ReactNode;
+}
+
+const SkeletonText = ({ isLoading, element }: SkeletonTextProps) => {
   return isLoading ? <Skeleton /> : element || null;
 };
 

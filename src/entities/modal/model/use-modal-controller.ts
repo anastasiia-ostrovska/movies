@@ -1,8 +1,8 @@
 import { useAppDispatch } from '@/shared/model';
 import { closeModal, openModal } from './modal-slice';
-import type { ModalVariant } from './types';
+import type { ModalDetails } from './types';
 
-type ShowModalHandler = (modalVariant: ModalVariant) => void;
+type ShowModalHandler = (modalVariant: ModalDetails) => void;
 
 interface ModalControllerResult {
   showModal: ShowModalHandler;

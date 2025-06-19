@@ -1,7 +1,8 @@
 import { Routes, Route } from 'react-router';
+import { ROUTES } from '@/shared/consts';
 import { MoviesPage } from '@/pages/movies-page';
 import { LoginPage } from '@/pages/login-page';
-import * as ROUTES from '../consts/routes';
+import { NotFoundPage } from '@/pages/not-found-page';
 import ProtectedRoute from './ProtectedRoute';
 
 const Routing = ({ isAuth }: { isAuth: boolean }) => {
@@ -23,6 +24,7 @@ const Routing = ({ isAuth }: { isAuth: boolean }) => {
           </ProtectedRoute>
         }
       />
+      <Route path="*" element={<NotFoundPage />} />
     </Routes>
   );
 };

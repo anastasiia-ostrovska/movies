@@ -14,7 +14,7 @@ const LoginPage = () => {
         <Typography variant="h4" component="h1">
           Log in
         </Typography>
-        <Typography variant="body" component="p">
+        <Typography variant="body2" component="p">
           Welcome! Please log in to continue
         </Typography>
         <LoginForm />

@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { DEFAULT_ERROR_MESSAGES } from '@/shared/configs';
 import { useMoviesParams, useMoviesListQuery, CARDS_PER_PAGE } from '@/entities/movie';
 import { generateFakeMoviesList } from '@/entities/movie';
@@ -14,6 +14,8 @@ export const useMovieCardList = () => {
   useEffect(() => {
     if (isError || (!!data && 'error' in data)) {
       setErrorMessage(DEFAULT_ERROR_MESSAGES.unexpected);
+    } else {
+      setErrorMessage('');
     }
   }, [data, isError]);
 
@@ -33,9 +35,12 @@ export const useMovieCardList = () => {
 
   // onClick modal handler
   const { showModal } = useModalController();
-  const handleCardOpen = (id: number) => {
-    showModal({ modalVariant: 'showCard', id });
-  };
+  const handleCardOpen = useCallback(
+    (id: number) => {
+      showModal({ modalVariant: 'showCard', id });
+    },
+    [showModal]
+  );
 
   return { data, movies, isNoMovies, isLoadingState, errorMessage, handleCardOpen };
 };

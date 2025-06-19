@@ -5,19 +5,20 @@ import { useDeleteMovie } from '../model/use-delete-movie';
 
 interface DeleteMovieButtonProps {
   id: number;
+  isLoading: boolean;
 }
 
 type DeleteMovieButtonPropsExtended = DeleteMovieButtonProps & Omit<IconButtonProps, 'id'>;
 
-const DeleteMovieButton = ({ id, ...buttonProps }: DeleteMovieButtonPropsExtended) => {
+const DeleteMovieButton = ({ id, isLoading, ...buttonProps }: DeleteMovieButtonPropsExtended) => {
   const { deleteButtonDisabled, handleDeleteCLick } = useDeleteMovie(id);
 
   return (
     <Box sx={{ p: 1 }}>
       <IconButton
-        aria-label="delete"
-        disabled={deleteButtonDisabled}
+        aria-label="delete movie"
         onClick={handleDeleteCLick}
+        disabled={deleteButtonDisabled || isLoading}
         sx={{ display: 'flex', justifySelf: 'end', color: 'text.secondary' }}
         {...buttonProps}
       >

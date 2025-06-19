@@ -18,7 +18,7 @@ const UploadMoviesFormLayout = ({
 }: UploadMoviesFormLayoutProps) => {
   return (
     <Stack spacing={3}>
-      <Stack direction="row" justifyContent="space-between" spacing={2}>
+      <Stack direction="row" justifyContent="space-between" spacing={{ xs: 1, sm: 2 }}>
         <Stack sx={{ width: 'auto' }}>
           {uploadButton}
           {fileName && (

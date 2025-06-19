@@ -9,15 +9,28 @@
     -moz-osx-font-smoothing: grayscale;
 }
 
-*, *::before, *::after {
+*,
+*::before,
+*::after {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-body {
+html, body, #root {
+    display: flex;
+    justify-content: center;
+    width: 100%;
     min-width: 320px;
     min-height: 100vh;
 }
 
+button {
+    border: none;
+    background: none;
+}
+
+li {
+    list-style: none;
+}
 

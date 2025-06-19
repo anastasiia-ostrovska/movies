@@ -7,7 +7,7 @@ import { useModalController } from '@/entities/modal';
 export const useMovieCardList = () => {
   const { params } = useMoviesParams();
   const { data, isLoading, isError } = useMoviesListQuery(params);
-
+  
   // Error state
   const [errorMessage, setErrorMessage] = useState('');
 

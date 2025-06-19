@@ -1,7 +1,8 @@
 import { Routes, Route } from 'react-router';
 import { ROUTES } from '@/shared/consts';
-import { MoviesPage } from '@/pages/movies-page';
+import { RegisterPage } from '@/pages/register-page';
 import { LoginPage } from '@/pages/login-page';
+import { MoviesPage } from '@/pages/movies-page';
 import { NotFoundPage } from '@/pages/not-found-page';
 import ProtectedRoute from './ProtectedRoute';
 
@@ -21,6 +22,14 @@ const Routing = ({ isAuth }: { isAuth: boolean }) => {
         element={
           <ProtectedRoute isAllowed={!isAuth} redirectPath={ROUTES.MOVIES}>
             <LoginPage />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path={ROUTES.REGISTER}
+        element={
+          <ProtectedRoute isAllowed={!isAuth} redirectPath={ROUTES.MOVIES}>
+            <RegisterPage />
           </ProtectedRoute>
         }
       />

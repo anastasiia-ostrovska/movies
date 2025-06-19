@@ -15,7 +15,6 @@ const MovieCardList = () => {
   if (isNoMovies) {
     return <EmptyBoxMessage />;
   }
-
   return (
     <MovieCardListLayout
       pagesCount={pagesCount}
@@ -30,7 +29,18 @@ const MovieCardList = () => {
       }
       cards={movies.map(movie => {
         return (
-          <Grid key={movie.id} component="li" size={{ xs: 12, sm: 6, md: 4 }}>
+          <Grid key={movie.id} component="li" size={{ xs: 12, sm: 6, md: 4 }} position="relative">
+            <DeleteMovieButton
+              id={movie.id}
+              isLoading={isLoadingState}
+              sx={{
+                position: 'absolute',
+                right: 4,
+                top: 4,
+                display: 'flex',
+                color: 'text.secondary',
+              }}
+            />
             <MovieCard
               id={movie.id}
               title={movie.title}
@@ -38,7 +48,6 @@ const MovieCardList = () => {
               year={movie.year as string}
               isLoading={isLoadingState}
               onCardClick={handleCardOpen}
-              action={<DeleteMovieButton id={movie.id} isLoading={isLoadingState} />}
             />
           </Grid>
         );

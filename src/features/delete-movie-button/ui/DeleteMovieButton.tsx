@@ -1,6 +1,5 @@
 import IconButton, { type IconButtonProps } from '@mui/material/IconButton';
 import DeleteIcon from '@mui/icons-material/Delete';
-import Box from '@mui/material/Box';
 import { useDeleteMovie } from '../model/use-delete-movie';
 
 interface DeleteMovieButtonProps {
@@ -14,17 +13,14 @@ const DeleteMovieButton = ({ id, isLoading, ...buttonProps }: DeleteMovieButtonP
   const { deleteButtonDisabled, handleDeleteCLick } = useDeleteMovie(id);
 
   return (
-    <Box sx={{ p: 1 }}>
-      <IconButton
-        aria-label="delete movie"
-        onClick={handleDeleteCLick}
-        disabled={deleteButtonDisabled || isLoading}
-        sx={{ display: 'flex', justifySelf: 'end', color: 'text.secondary' }}
-        {...buttonProps}
-      >
-        <DeleteIcon />
-      </IconButton>
-    </Box>
+    <IconButton
+      aria-label="delete movie"
+      onClick={handleDeleteCLick}
+      disabled={deleteButtonDisabled || isLoading}
+      {...buttonProps}
+    >
+      <DeleteIcon />
+    </IconButton>
   );
 };
 

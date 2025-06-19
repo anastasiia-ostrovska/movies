@@ -1,9 +1,9 @@
 import { Form, Input } from '@/shared/form';
 import { FormProvider } from 'react-hook-form';
 import Button from '@mui/material/Button';
+import { useShowPassword } from '@/shared/lib';
 import { type LoginData } from '@/entities/session';
 import { LOGIN_FORM_TEXT } from '../config/login-form-text';
-import { useShowPassword } from '../model/use-show-password';
 import { useLoginForm } from '../model/use-login-form';
 import ShowPasswordButton from './ShowPasswordButton';
 import LoginFormLayout from './LoginFormLayout';

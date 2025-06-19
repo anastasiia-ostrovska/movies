@@ -18,6 +18,9 @@
 }
 
 html, body, #root {
+    display: flex;
+    justify-content: center;
+    width: 100%;
     min-width: 320px;
     min-height: 100vh;
 }

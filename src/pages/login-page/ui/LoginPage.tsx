@@ -1,5 +1,8 @@
 import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
+import Button from '@mui/material/Button';
+import { ROUTES } from '@/shared/consts';
+import { Link } from 'react-router-dom';
 import { LoginForm } from '@/features/login-form';
 
 const LoginPage = () => {
@@ -18,6 +21,12 @@ const LoginPage = () => {
           Welcome! Please log in to continue
         </Typography>
         <LoginForm />
+        <Typography variant="body2" component="p" textAlign="center">
+          Do not have an account yet?
+          <Button component={Link} to={ROUTES.REGISTER}>
+            Create account
+          </Button>
+        </Typography>
       </Stack>
     </Stack>
   );

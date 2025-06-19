@@ -15,28 +15,32 @@ export const useMoviesPagination = (data: MoviesListResponse | undefined) => {
   const offset = useAppSelector(selectOffset);
   const dispatch = useAppDispatch();
 
-  if (!data)
+  if (!data || 'error' in data)
     return {
       currentPage: 0,
       pagesCount: 0,
       handlePageChange: () => {},
     };
 
-  const moviesCount = (data as MoviesListSuccessResponse).meta.total;
-  const pagesCount = Math.ceil(moviesCount / CARDS_PER_PAGE);
-
   const handlePageChange: PageChangeHandler = (_, page) => {
     if (page !== currentPage) {
       setCurrentPage(page);
     }
+
+    let newOffset: number;
+    const diff = Math.abs(page - currentPage) * CARDS_PER_PAGE;
+
     if (page > currentPage) {
-      const newOffset = offset + CARDS_PER_PAGE;
+      newOffset = offset + diff;
       dispatch(setOffset(newOffset));
     } else {
-      const newOffset = offset - CARDS_PER_PAGE;
+      newOffset = offset - diff;
       dispatch(setOffset(newOffset));
     }
   };
+
+  const moviesCount = (data as MoviesListSuccessResponse).meta.total;
+  const pagesCount = Math.ceil(moviesCount / CARDS_PER_PAGE);
 
   return { currentPage, pagesCount, handlePageChange };
 };

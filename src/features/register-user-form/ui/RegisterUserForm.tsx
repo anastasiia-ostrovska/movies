@@ -2,7 +2,7 @@ import { useShowPassword } from '@/shared/lib';
 import Button from '@mui/material/Button';
 import { FormProvider } from 'react-hook-form';
 import { Form, Input } from '@/shared/form';
-import type { LoginData } from '@/entities/session';
+import type { RegisterFormData } from '@/entities/users';
 import ShowPasswordButton from '@/features/login-form/ui/ShowPasswordButton';
 import { REGISTER_FORM_TEXT } from '../config/register-form-text';
 import { useRegisterForm } from '../model/use-register-form';
@@ -22,7 +22,7 @@ const RegisterUserForm = () => {
 
   return (
     <FormProvider {...methods}>
-      <Form<LoginData> onSubmit={onSubmit} width="100%">
+      <Form<RegisterFormData> onSubmit={onSubmit} width="100%">
         <RegisterUserFormLayout
           formErrorMessage={formErrorMessage}
           emailInput={

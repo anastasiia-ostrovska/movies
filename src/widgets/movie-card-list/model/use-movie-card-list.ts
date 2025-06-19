@@ -14,6 +14,8 @@ export const useMovieCardList = () => {
   useEffect(() => {
     if (isError || (!!data && 'error' in data)) {
       setErrorMessage(DEFAULT_ERROR_MESSAGES.unexpected);
+    } else {
+      setErrorMessage('');
     }
   }, [data, isError]);
 

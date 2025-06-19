@@ -2,7 +2,6 @@ import type { ReactElement } from 'react';
 import Stack from '@mui/material/Stack';
 import Alert from '@mui/material/Alert';
 import Grid from '@mui/material/Grid';
-import { useMediaQueryState } from '@/shared/lib';
 
 interface MovieCardListLayoutProps {
   pagesCount: number;
@@ -17,12 +16,11 @@ const MovieCardListLayout = ({
   pagination,
   cards,
 }: MovieCardListLayoutProps) => {
-  const { isUpMD } = useMediaQueryState();
-  const showBottomPagination = !!pagesCount && !isUpMD;
+  const showPagination = !!pagesCount && pagesCount > 1;
 
   return (
     <Stack alignItems="center" spacing={2}>
-      {!!pagesCount && pagination}
+      {showPagination && pagination}
       {errorMessage && (
         <Alert variant="outlined" severity="error" sx={{ width: '100%' }}>
           {errorMessage}
@@ -31,7 +29,6 @@ const MovieCardListLayout = ({
       <Grid container component="ul" rowSpacing={2} columnSpacing={2} width="100%">
         {cards}
       </Grid>
-      {showBottomPagination && pagination}
     </Stack>
   );
 };

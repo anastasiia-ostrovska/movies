@@ -92,7 +92,7 @@ docker pull anastasiiaostrovska/movie-box-webapp
 docker run --name movies-container -p 3000:3000 -e API_URL=http://localhost:8000/api/v1 anastasiiaostrovska/movie-box-webapp
 ``` 
 
-(You can change API_URL as environment variable)
+(You can change API_URL as an environment variable)
 
 ### Building Docker Image Locally
 
@@ -106,7 +106,7 @@ VITE_API_URL=API_URL
 
 ```
 
-docker build -t movies .
+docker build -t movies-box-webapp .
 
 ``` 
 

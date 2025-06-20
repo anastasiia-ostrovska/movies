@@ -74,25 +74,19 @@ The application will be available at `http://localhost:3000`
 The application is available as a Docker image on DockerHub:
 [https://hub.docker.com/r/anastasiiaostrovska/movie-box-webapp](https://hub.docker.com/r/anastasiiaostrovska/movie-box-webapp)
 
-1. Create a `.env.production` file in the root directory:
-
-```
-VITE_API_URL=API_URL
-``` 
-
-2. Docker Pull Command:
+1. Docker Pull Command:
 
 ```
 docker pull anastasiiaostrovska/movie-box-webapp
 ``` 
 
-3. Starting instance:
+2. Starting instance:
 
 ```
 docker run --name movies-container -p 3000:3000 -e API_URL=http://localhost:8000/api/v1 anastasiiaostrovska/movie-box-webapp
 ``` 
 
-(You can change API_URL as environment variable)
+(You can change API_URL as an environment variable)
 
 ### Building Docker Image Locally
 
@@ -106,7 +100,7 @@ VITE_API_URL=API_URL
 
 ```
 
-docker build -t movies .
+docker build -t movies-box-webapp .
 
 ``` 
 

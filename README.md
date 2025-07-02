@@ -38,6 +38,13 @@ The application follows a clean architecture pattern (FSD) with the following st
 - npm (v9 or higher)
 - Docker (for containerized deployment)
 
+### Server
+
+Run docker image as server:
+```
+  https://hub.docker.com/r/webbylabhub/movies
+``` 
+
 ### Local Development
 
 1. Clone the repository:

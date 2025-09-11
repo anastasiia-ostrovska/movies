@@ -1,4 +1,4 @@
-# 👩‍💻👨‍💻 MovieBox Demo Images
+# 🎬 MovieBox Demo Images
 
 ## Movies List:
 

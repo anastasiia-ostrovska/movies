@@ -3,12 +3,13 @@
 A modern React-based movie application built with TypeScript, using Material-UI and RTK/RTK Query for state
 management.
 
-![https://github.com/anastasiia-ostrovska/movies/tree/master/src/assets/demo-images](https://github.com/anastasiia-ostrovska/movies/tree/master/src/assets/demo-images)
+![](/src/assets/demo-images/movies-list.png)
+
 
 ## Demo Images
 
 Welcome to watch more demo images:
-[https://github.com/anastasiia-ostrovska/movies/tree/docs/demo-images/src/assets/demo-images](https://github.com/anastasiia-ostrovska/movies/tree/docs/demo-images/src/assets/demo-images)
+[https://github.com/anastasiia-ostrovska/movies/tree/master/src/assets/demo-images](https://github.com/anastasiia-ostrovska/movies/tree/docs/demo-images/src/assets/demo-images)
 
 ## 🧱 Architecture
 

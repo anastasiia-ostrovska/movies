@@ -3,6 +3,13 @@
 A modern React-based movie application built with TypeScript, using Material-UI and RTK/RTK Query for state
 management.
 
+![](/src/assets/demo-images/movies-list.png)
+
+## Demo Images
+
+Welcome to watch more demo images:
+[https://github.com/anastasiia-ostrovska/movies/tree/docs/demo-images/src/assets/demo-images](https://github.com/anastasiia-ostrovska/movies/tree/docs/demo-images/src/assets/demo-images)
+
 ## 🧱 Architecture
 
 The application follows a clean architecture pattern (FSD) with the following structure:

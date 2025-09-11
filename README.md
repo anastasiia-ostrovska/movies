@@ -9,8 +9,7 @@ management.
 ## Demo Images
 
 Welcome to watch more demo images:
-[https://github.com/anastasiia-ostrovska/movies/tree/master/src/assets/demo-images](https://github.com/anastasiia-ostrovska/movies/tree/docs/demo-images/src/assets/demo-images)
-
+[https://github.com/anastasiia-ostrovska/movies/tree/master/src/assets/demo-images](https://github.com/anastasiia-ostrovska/movies/tree/master/src/assets/demo-images)
 ## 🧱 Architecture
 
 The application follows a clean architecture pattern (FSD) with the following structure:
